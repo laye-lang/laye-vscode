@@ -87,7 +87,7 @@
 			"}"
 		]
 	],
-	"autoCloseBefore": "#&|^<>+-*/%=?.:,; \t\n",
+	"autoCloseBefore": "=?; \t\n",
 	"folding": {
 		"offSide": true,
 		"markers": {

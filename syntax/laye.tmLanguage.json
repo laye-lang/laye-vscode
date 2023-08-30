@@ -1,0 +1,106 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Laye",
+	"patterns": [
+		{
+			"name": "comment.block.laye",
+			"begin": "/\\*",
+			"end": "\\*/"
+		},
+		{
+			"name": "comment.line.double-slash.laye",
+			"match": "//.*"
+		},
+		{
+			"name": "storage.laye",
+			"match": "\\b(varargs|const|export|inline|foreign|callconv|readonly|writeonly|var|void|noreturn|rawptr|bool|int|uint|float|import|struct|varaint|enum|test)\\b"
+		},
+		{
+			"name": "keyword.control.laye",
+			"match": "\\b(if|else|for|do|switch|case|default|return|break|continue|defer|goto|new|delete|cast|try|catch|discard|sizeof|alignof|offsetof|not|and|or|xor)\\b"
+		},
+		{
+			"name": "keyword.operator.laye",
+			"match": "\\+=|-=|\\*=|/=|%=|&=|\\|=|~=|<<=|>>=|<<|>>|==|!=|<=|>=|::|=>|[+\\-*/%&|~]"
+		},
+		{
+			"name": "constant.language.laye",
+			"match": "\\b(nil|global)\\b"
+		},
+		{
+			"name": "constant.language.boolean.laye",
+			"match": "\\b(true|false)\\b"
+		},
+		{
+			"name": "string.quoted.single.laye",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.laye",
+					"match": "\\\\'"
+				},
+				{
+					"include": "#escape"
+				}
+			]
+		},
+		{
+			"name": "string.quoted.double.laye",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.laye",
+					"match": "\\\\\""
+				},
+				{
+					"include": "#escape"
+				}
+			]
+		},
+		{
+			"name": "punctuation.definition.laye",
+			"match": "[\\(\\)\\[\\]\\{\\}]"
+		},
+		{
+			"name": "punctuation.separator.laye",
+			"match": "[.,;]"
+		},
+		{
+			"name": "constant.numeric.laye",
+			"match": "\\b((\\d+_)*(\\d+\\.)?\\d+|0x([0-9A-Fa-f]+_)*([0-9A-Fa-f]+\\.)?[0-9A-Fa-f]+|0o([0-7]+_)*([0-7]+\\.)?[0-7]+|0b([01]+_)*([01]+\\.)?[01]+)\\b"
+		},
+		{
+			"name": "entity.name.type.laye",
+			"match": "(?<=(\\bstruct\\b(\\s|\\n)+\\(?(([^\\(\\[\\{;]|\\n)+((\\(([^\\(\\{;]|\\n)*\\)|\\[([^\\[\\{;]|\\n)*\\])([^\\(\\[\\{;]|\\n)*)*,\\s*)*))\\b[a-zA-Z0-9]+\\b"
+		},
+		{
+			"name": "entity.name.function.laye",
+			"match": "\\b[a-zA-Z0-9_]+\\b(?=\\s*\\()"
+		},
+		{
+			"name": "variable.other.constant.laye",
+			"match": "(?<=\\bconst\\b(\\s|\\n)+(([^\\(\\[\\{;]|\\n)+((\\(([^\\(\\{;]|\\n)*\\)|\\[([^\\[\\{;]|\\n)*\\])([^\\(\\[\\{;]|\\n)*)*,\\s*)*)\\b[a-zA-Z0-9]+\\b"
+		},
+		{
+			"name": "variable.laye",
+			"match": "\\b[a-z0-9_]+\\b"
+		},
+		{
+			"name": "variable.other.constant.laye",
+			"match": "\\b[A-Z0-9_]+\\b"
+		},
+		{
+			"name": "variable.laye",
+			"match": "\\b[a-zA-Z0-9]+\\b"
+		}
+	],
+	"repository": {
+		"escape": {
+			"name": "constant.character.escape.laye",
+			"match": "\\\\([\\\\0abefntv]|x[0-7][0-9A-Fa-f]|o[0-1]?[0-7]{1,2}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})"
+		}
+	},
+	"scopeName": "source.laye"
+}

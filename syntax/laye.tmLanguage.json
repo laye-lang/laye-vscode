@@ -13,7 +13,7 @@
 		},
 		{
 			"name": "keyword.directive.laye",
-			"match": "\\b(import|export|using)\\b"
+			"match": "\\b(import|export)\\b"
 		},
 		{
 			"name": "storage.modifier.laye",
@@ -21,11 +21,11 @@
 		},
 		{
 			"name": "storage.type.laye",
-			"match": "\\b(var|void|noreturn|rawptr|bool|int|uint|float|struct|enum|test|namespace)\\b"
+			"match": "\\b(var|void|noreturn|rawptr|bool|(b\\d+)|int|(i\\d+)|uint|(u\\d+)|float|f16|f32|f64|f80|f128|struct|variant|enum)\\b"
 		},
 		{
 			"name": "storage.laye",
-			"match": "\\b(varargs|foreign|callconv|varaint)\\b"
+			"match": "\\b(varargs|foreign|callconv|test)\\b"
 		},
 		{
 			"name": "keyword.control.conditional.laye",
@@ -65,7 +65,7 @@
 		},
 		{
 			"name": "keyword.operator.laye",
-			"match": "::|=>|=|\\?"
+			"match": "=>|=|\\?"
 		},
 		{
 			"name": "constant.language.laye",
@@ -109,19 +109,15 @@
 		},
 		{
 			"name": "punctuation.separator.laye",
-			"match": "[.,;]"
+			"match": "::|[.,;]"
 		},
 		{
 			"name": "constant.numeric.laye",
-			"match": "\\b((\\d+_)*(\\d+\\.)?\\d+|0x([0-9A-Fa-f]+_)*([0-9A-Fa-f]+\\.)?[0-9A-Fa-f]+|0o([0-7]+_)*([0-7]+\\.)?[0-7]+|0b([01]+_)*([01]+\\.)?[01]+)\\b"
-		},
-		{
-			"name": "entity.name.namespace.laye",
-			"match": "(?<=\\b(namespace|using)\\b\\s+([a-zA-Z0-9_]+::\\s*)*)\\b[a-zA-Z0-9_]+\\b|\\b[a-zA-Z0-9_]+\\b(?=\\s*::)"
+			"match": "\\b((\\d+_)?\\d+)+\\b"
 		},
 		{
 			"name": "entity.name.type.laye",
-			"match": "(?<=\\b(struct|const|inline|readonly|writeonly)\\b\\s+)\\b[a-zA-Z0-9_]+\\b"
+			"match": "(?<=\\b(struct|variant|enum)\\b\\s+)\\b[a-zA-Z0-9_]+\\b"
 		},
 		{
 			"name": "entity.name.function.laye",
@@ -129,19 +125,7 @@
 		},
 		{
 			"name": "variable.other.constant.laye",
-			"match": "(?<=\\bconst\\b\\s+([a-zA-Z0-9_]+\\s+)+)\\b[a-zA-Z0-9_]+\\b"
-		},
-		{
-			"name": "variable.laye",
-			"match": "\\b[a-z_]+\\b"
-		},
-		{
-			"name": "entity.name.type.laye",
-			"match": "\\b[a-z_]\\d+\\b"
-		},
-		{
-			"name": "variable.other.constant.laye",
-			"match": "\\b[A-Z_]+\\b"
+			"match": "\\b[A-Z0-9_]+\\b"
 		},
 		{
 			"name": "variable.laye",

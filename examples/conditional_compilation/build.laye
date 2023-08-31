@@ -1,0 +1,23 @@
+// invoke with `laye build` in this directory, probably
+
+import "stdio.h";
+
+import std::build;
+
+std::build::action build(std::build::builder* builder)
+{
+    std::build::add_executable(builder, "main.laye");
+
+    if (builder.platform == ::Windows)
+        std::build::add_package(builder, "mylib", "mylib-windows.laye");
+    else if (builder.platform == ::Linux)
+        std::build::add_package(builder, "mylib", "mylib-linux.laye");
+    else
+    {
+        stdio::printf("Unsupported target platform specified\n");
+        return ::Halt;
+    }
+
+    assert(std::build::package_exists(builder, "mylib"));
+    return ::Continue;
+}

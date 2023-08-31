@@ -41,7 +41,7 @@
 		},
 		{
 			"name": "keyword.control.laye",
-			"match": "\\b(new|delete|cast|try|catch|discard|sizeof|alignof|offsetof|not|and|or|xor|is)\\b"
+			"match": "\\b(new|delete|cast|try|catch|discard|sizeof|alignof|offsetof|not|and|or|xor|is|assert)\\b"
 		},
 		{
 			"name": "keyword.operator.assignment.logical.laye",

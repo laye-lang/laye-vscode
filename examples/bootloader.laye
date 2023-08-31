@@ -21,17 +21,17 @@ i32 memcmp(readonly rawptr a, readonly rawptr b, uint n)
 EFI_FILE*? load_file(EFI_FILE* directory, CHAR16 readonly[*] path,
 	EFI_HANDLE image_handle, EFI_SYSTEM_TABLE* system_table)
 {
-	EFI_FILE* loaded_file;
+	EFI_FILE*? loaded_file;
 
-	EFI_LOADED_IMAGE_PROTOCOL* loaded_image;
+	EFI_LOADED_IMAGE_PROTOCOL*? loaded_image;
 	system_table->BootServices->HandleProtocol(image_handle,
 		&gEfiLoadedImageProtocolGuid, &loaded_image);
 	
-	EFI_SIMPLE_FILE_SYSTEM_PROTOCOL* file_system;
+	EFI_SIMPLE_FILE_SYSTEM_PROTOCOL*? file_system;
 	system_table->BootServices->HandleProtocol(loaded_image->DeviceHandle,
 		&gEfiSimpleFileSystemProtocolGuid, &file_system);
 	
-	if (directory == NULL)
+	if (directory is nil)
 		file_system->OpenVolume(file_system, &directory);
 	
 	var status = directory->Open(directory, &loaded_file, path, EFI_FILE_MODE_READ, EFI_FILE_READ_ONLY);
@@ -43,7 +43,7 @@ EFI_FILE*? load_file(EFI_FILE* directory, CHAR16 readonly[*] path,
 EFI_STATUS efi_main(EFI_HANDLE image_handle, EFI_SYSTEM_TABLE *system_table) {
 	InitializeLib(image_handle, system_table);
 
-	var kernel_file = load_file(NULL, "kernel.elf", image_handle, system_table);
+	var kernel_file = load_file(nil, "kernel.elf", image_handle, system_table);
 	if (kernel_file is nil)
 	{
 		Print("Could not load kernel.elf\n\r");
@@ -55,7 +55,7 @@ EFI_STATUS efi_main(EFI_HANDLE image_handle, EFI_SYSTEM_TABLE *system_table) {
 	Elf64_Ehdr kernel_header;
 	{
 		UINTN file_info_size;
-		EFI_FILE_INFO* file_info;
+		EFI_FILE_INFO*? file_info;
 		kernel_file->GetInfo(kernel_file, &gEfiFileInfoGuid, &file_info_size, nil);
 		system_table->BootServices->AllocatePool(EfiLoaderData, file_info_size, file_info);
 		kernel_file->GetInfo(kernel_file, &gEfiFileInfoGuid, &file_info_size, &file_info);

@@ -1,5 +1,13 @@
 import * from "stdio.h";
 
+/*
+ * This is a block comment
+ * `/* With actuall code inside it */`
+ * Take the `exit(0)` function for example
+ * Or `std::string_view spelling` from `token.laye`
+ * /* Also, nested comments work too! */
+ */
+
 i32 main()
 {
     printf("Hello, hunter!\n");

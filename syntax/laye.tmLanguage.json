@@ -3,9 +3,7 @@
 	"name": "Laye",
 	"patterns": [
 		{
-			"name": "comment.block.laye",
-			"begin": "/\\*",
-			"end": "\\*/"
+			"include": "#comment-block"
 		},
 		{
 			"name": "comment.line.double-slash.laye",
@@ -137,6 +135,26 @@
 		}
 	],
 	"repository": {
+		"comment-block": {
+			"name": "comment.block.laye",
+			"begin": "/\\*",
+			"end": "\\*/",
+			"patterns": [
+				{
+					"include": "#comment-block"
+				},
+				{
+					"name": "meta.embedded",
+					"begin": "`",
+					"end": "`",
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				}
+			]
+		},
 		"escape": {
 			"name": "constant.character.escape.laye",
 			"match": "\\\\([\\\\0abefnrtv]|x[0-7][0-9A-Fa-f]|o[0-1]?[0-7]{1,2}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})"

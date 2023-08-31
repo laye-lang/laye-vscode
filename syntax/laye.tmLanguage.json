@@ -61,11 +61,11 @@
 		},
 		{
 			"name": "keyword.operator.relational.laye",
-			"match": "==|!=|<=|>=|<|>"
+			"match": "==|!=|<=|>=|[<>]"
 		},
 		{
 			"name": "keyword.operator.laye",
-			"match": "=>|=|\\?"
+			"match": "->|=>|[=?]"
 		},
 		{
 			"name": "constant.language.laye",
@@ -121,7 +121,7 @@
 		},
 		{
 			"name": "entity.name.type.laye",
-			"match": "(?<=\\b(struct|variant|enum|alias)\\b\\s+)\\b[a-zA-Z0-9_]+\\b"
+			"match": "(?<=\\b(struct|variant|enum|alias)\\b\\s+)\\b[a-zA-Z0-9_]+\\b|\\b[a-zA-Z0-9_]+\\b(?=\\s+\\b(read|write)only\\b|[\\s*?\\[\\]]+\\b[a-zA-Z0-9_]+\\b\\s*[^a-zA-Z0-9_\\s.,\\]\"])"
 		},
 		{
 			"name": "entity.name.function.laye",
@@ -129,7 +129,7 @@
 		},
 		{
 			"name": "variable.other.constant.laye",
-			"match": "\\b[A-Z0-9_]+\\b"
+			"match": "\\b[A-Z0-9_]+\\b|(?<=\\b(const|(read|write)only)\\b(\\s+\\b[a-zA-Z0-9_]+\\b)?[\\s*?\\[\\]]+)\\b[a-zA-Z0-9_]+\\b"
 		},
 		{
 			"name": "variable.laye",

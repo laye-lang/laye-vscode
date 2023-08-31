@@ -182,6 +182,10 @@
 			"name": "variable.laye",
 			"match": "\\b[0-9a-zA-Z_]+\\b"
 		},
+		"escape": {
+			"name": "constant.character.escape.laye",
+			"match": "\\\\([\\\\0abefnrtv]|x[0-7][0-9A-Fa-f]|o[0-1]?[0-7]{1,2}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})"
+		},
 		"meta.embedded": {
 			"name": "meta.embedded.laye",
 			"begin": "`",

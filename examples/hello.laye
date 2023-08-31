@@ -8,6 +8,14 @@ import * from "stdio.h";
  * /* Also, nested comments work too! */
  */
 
+/*
+ * Documentation needs highlighting too
+ * @author Zedritsch
+ * @param void name
+ * @return i32
+ * @since 1.0.0-pre1
+ */
+
 i32 main()
 {
     printf("Hello, hunter!\n");

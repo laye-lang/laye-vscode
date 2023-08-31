@@ -144,7 +144,31 @@
 					"include": "#comment-block"
 				},
 				{
-					"name": "meta.embedded",
+					"name": "keyword.laye",
+					"match": "@\\b(author|param|return|since)\\b"
+				},
+				{
+					"name": "constant.numeric.laye",
+					"match": "(?<=@\\bsince\\b\\s+)\\b\\d+(\\.\\d+)*[a-zA-Z0-9_\\-.]*\\b"
+				},
+				{
+					"name": "storage.type.laye",
+					"match": "(?<=@\\b(param|return)\\b\\s+)\\b(var|void|noreturn|rawptr|bool|b\\d+|int|i\\d+|uint|u\\d+|float|f16|f32|f64|f80|f128|struct|variant|enum|alias)\\b"
+				},
+				{
+					"name": "entity.name.type.laye",
+					"match": "(?<=@\\b(param|return)\\b\\s+)\\b[a-zA-Z0-9_]+\\b"
+				},
+				{
+					"name": "variable.other.constant.laye",
+					"match": "(?<=@\\bauthor\\b\\s+)\\b[a-zA-Z0-9_\\-.]+\\b"
+				},
+				{
+					"name": "variable.laye",
+					"match": "(?<=@\\bparam\\b\\s+\\b[a-zA-Z0-9_]+\\b\\s+)\\b[a-zA-Z0-9_]+\\b"
+				},
+				{
+					"name": "meta.embedded.laye",
 					"begin": "`",
 					"end": "`",
 					"patterns": [

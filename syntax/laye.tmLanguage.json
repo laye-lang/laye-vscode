@@ -198,7 +198,7 @@
 		},
 		"invalid.illegal": {
 			"name": "invalid.illegal.laye",
-			"match": "#[0-9a-zA-Z_]*|'(?:[^']*?'|.*?\\s)|\"[^\"\\n;]*|[^0-9a-zA-Z_*?\\[\\]]"
+			"match": "#[0-9a-zA-Z_]*|'(?:[^']*?'|.*?\\s)|\"[^\"\\n;]*|[^0-9a-zA-Z_\\s*?\\[\\]]"
 		},
 		"escape": {
 			"name": "constant.character.escape.laye",

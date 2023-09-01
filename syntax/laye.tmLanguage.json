@@ -189,7 +189,7 @@
 		},
 		"escape": {
 			"name": "constant.character.escape.laye",
-			"match": "\\\\([\\\\0abefnrtv]|x[0-7][0-9a-fA-F]|o[0-1]?[0-7]{1,2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})"
+			"match": "\\\\(?:[\\\\0abefnrtv]|x[0-7][0-9a-fA-F]|o[0-1]?[0-7]{1,2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})"
 		},
 		"meta.embedded": {
 			"name": "meta.embedded.laye",

@@ -4,45 +4,33 @@
 	"description": "Laye support for Visual Studio Code",
 	"publisher": "laye-lang",
 	"license": "MIT",
-	"version": "1.0.0",
-	"icon": "./images/icon.png",
+	"version": "0.1.0",
+	"icon": "images/icon.png",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/laye-lang/laye-vscode"
 	},
-	"engines": {
-		"vscode": "^1.75.0"
-	},
-	"categories": [
-		"Programming Languages"
-	],
-	"keywords": [
-		"Laye",
-		"laye"
-	],
+	"engines": { "vscode": "^1.75.0" },
+	"categories": [ "Programming Languages" ],
+	"keywords": [ "Laye", "laye" ],
 	"contributes": {
 		"languages": [
 			{
 				"id": "laye",
-				"aliases": [
-					"Laye",
-					"laye"
-				],
-				"extensions": [
-					".laye"
-				],
+				"aliases": [ "Laye", "laye" ],
+				"extensions": [ ".laye" ],
 				"icon": {
-					"dark": "./images/dark.png",
-					"light": "./images/light.png"
+					"dark": "images/dark.png",
+					"light": "images/light.png"
 				},
-				"configuration": "./language-configuration.json"
+				"configuration": "language-configuration.json"
 			}
 		],
 		"grammars": [
 			{
 				"language": "laye",
 				"scopeName": "source.laye",
-				"path": "./syntax/laye.tmLanguage.json"
+				"path": "syntax/laye.tmLanguage.json"
 			}
 		]
 	}

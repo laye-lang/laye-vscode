@@ -1,6 +1,6 @@
 # Change Log
 
-All notable changes to the "laye-for-vs-code" extension will be documented in this file.
+All notable changes to the "laye-vscode" extension will be documented in this file.
 
 ## [Unreleased]
 

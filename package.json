@@ -1,13 +1,13 @@
 {
-	"name": "laye-for-vs-code",
+	"name": "laye-vscode",
 	"displayName": "Laye for VS-Code",
 	"description": "Laye support for Visual Studio Code",
-	"publisher": "Zedritsch",
+	"publisher": "laye-lang",
 	"license": "MIT",
 	"version": "1.0.0",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Zedritsch/Laye-for-VS-Code"
+		"url": "https://github.com/laye-lang/laye-vscode"
 	},
 	"engines": {
 		"vscode": "^1.75.0"

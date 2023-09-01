@@ -1,5 +1,7 @@
 # Laye support for Visual Studio Code
 
+Find on [GitHub](https://github.com/laye-lang/laye-vscode), [Codeberg](https://codeberg.org/laye-lang/laye-vscode) or [Local's Personal Gitea](https://git.nashiora.dev/nashiora/laye-vscode)
+
 Laye is a programming language designed to be used alongside C. Where many languages aim to be a C replacement, Laye instead wants to co-exist in its own unique manner. This relationship is so important that the Laye compiler, `layec`, is also a C compiler.
 
 ## Features

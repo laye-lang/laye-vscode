@@ -120,11 +120,11 @@
 		},
 		"constant.language.boolean": {
 			"name": "constant.language.boolean.laye",
-			"match": "\\b(true|false)\\b"
+			"match": "\\b(?:true|false)\\b"
 		},
 		"constant.language": {
 			"name": "constant.language.laye",
-			"match": "\\b(nil|global)\\b"
+			"match": "\\b(?:nil|global)\\b"
 		},
 		"string.quoted.single": {
 			"name": "string.quoted.single.laye",
@@ -227,7 +227,7 @@
 		"comment.documentation.param": {
 			"name": "meta.embedded.laye",
 			"begin": "(?<=@\\bparam\\b).",
-			"end": "\\n|;",
+			"end": "[\\n;]",
 			"patterns": [
 				{ "include": "#comment.line" },
 				{ "include": "#storage.modifier" },
@@ -245,7 +245,7 @@
 		"comment.documentation.return": {
 			"name": "meta.embedded.laye",
 			"begin": "(?<=@\\breturn\\b).",
-			"end": "\\n|;",
+			"end": "[\\n;]",
 			"patterns": [
 				{ "include": "#comment.line" },
 				{ "include": "#storage.modifier" },
@@ -255,16 +255,12 @@
 				{ "include": "#punctuation.separator" },
 				{ "include": "#constant.numeric" },
 				{ "include": "#entity.name.scope-resolution" },
-				{ "include": "#entity.name.type" },
-				{
-					"name": "entity.name.type.laye",
-					"match": "\\b[0-9a-zA-Z_]+\\b"
-				}
+				{ "include": "#entity.name.type" }
 			]
 		},
 		"comment.documentation.since": {
 			"name": "constant.numeric.laye",
-			"match": "(?<=@\\bsince\\b\\s+)\\b\\d+(\\.\\d+)*[0-9a-zA-Z_.\\-]*\\b"
+			"match": "(?<=@\\bsince\\b\\s+)\\b\\d+(?:\\.\\d+)*[0-9a-zA-Z_.\\-]*\\b"
 		}
 	},
 	"scopeName": "source.laye"

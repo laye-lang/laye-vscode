@@ -162,7 +162,7 @@
 		},
 		"punctuation.separator": {
 			"name": "punctuation.separator.laye",
-			"match": "::|[.,;]"
+			"match": "::|[.,:;]"
 		},
 		"constant.numeric": {
 			"name": "constant.numeric.laye",

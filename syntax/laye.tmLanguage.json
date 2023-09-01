@@ -153,6 +153,14 @@
 					"name": "constant.character.escape.laye",
 					"match": "\\\\\""
 				},
+				{
+					"name": "constant.other.placeholder.laye",
+					"match": "%[\\+#]*\\d*(?:\\.\\d+)?(?:hh|ll|l)?[c-gopsuxEGX%]"
+				},
+				{
+					"name": "invalid.illegal.laye",
+					"match": "%."
+				},
 				{ "include": "#escape" }
 			]
 		},

@@ -29,7 +29,8 @@
 		{ "include": "#entity.name.type" },
 		{ "include": "#entity.name.function" },
 		{ "include": "#variable.other.constant" },
-		{ "include": "#variable" }
+		{ "include": "#variable" },
+		{ "include": "#invalid.illegal" }
 	],
 	"repository": {
 		"comment.block": {
@@ -128,7 +129,7 @@
 		},
 		"string.quoted.single": {
 			"name": "string.quoted.single.laye",
-			"begin": "'",
+			"begin": "'(?=(?:[^' ]|\\\\')*'| ')",
 			"end": "'",
 			"patterns": [
 				{
@@ -140,7 +141,7 @@
 		},
 		"string.quoted.double": {
 			"name": "string.quoted.double.laye",
-			"begin": "\"",
+			"begin": "\"(?=(?:[^\"]|\\\\\")*\")",
 			"end": "\"",
 			"patterns": [
 				{
@@ -160,7 +161,7 @@
 		},
 		"constant.numeric": {
 			"name": "constant.numeric.laye",
-			"match": "2#(?:(?:[0-1]+_)?[0-1]+)+|3#(?:(?:[0-2]+_)?[0-2]+)+|4#(?:(?:[0-3]+_)?[0-3]+)+|5#(?:(?:[0-4]+_)?[0-4]+)+|6#(?:(?:[0-5]+_)?[0-5]+)+|7#(?:(?:[0-6]+_)?[0-6]+)+|8#(?:(?:[0-7]+_)?[0-7]+)+|9#(?:(?:[0-8]+_)?[0-8]+)+|10#(?:(?:[0-9]+_)?[0-9]+)+|11#(?:(?:[0-9aA]+_)?[0-9aA]+)+|12#(?:(?:[0-9a-bA-B]+_)?[0-9a-bA-B]+)+|13#(?:(?:[0-9a-cA-C]+_)?[0-9a-cA-C]+)+|14#(?:(?:[0-9a-dA-D]+_)?[0-9a-dA-D]+)+|15#(?:(?:[0-9a-eA-E]+_)?[0-9a-eA-E]+)+|16#(?:(?:[0-9a-fA-F]+_)?[0-9a-fA-F]+)+|17#(?:(?:[0-9a-gA-G]+_)?[0-9a-gA-G]+)+|18#(?:(?:[0-9a-hA-H]+_)?[0-9a-hA-H]+)+|19#(?:(?:[0-9a-iA-I]+_)?[0-9a-iA-I]+)+|20#(?:(?:[0-9a-jA-J]+_)?[0-9a-jA-J]+)+|21#(?:(?:[0-9a-kA-K]+_)?[0-9a-kA-K]+)+|22#(?:(?:[0-9a-lA-L]+_)?[0-9a-lA-L]+)+|23#(?:(?:[0-9a-mA-M]+_)?[0-9a-mA-M]+)+|24#(?:(?:[0-9a-nA-N]+_)?[0-9a-nA-N]+)+|25#(?:(?:[0-9a-oA-O]+_)?[0-9a-oA-O]+)+|26#(?:(?:[0-9a-pA-P]+_)?[0-9a-pA-P]+)+|27#(?:(?:[0-9a-qA-Q]+_)?[0-9a-qA-Q]+)+|28#(?:(?:[0-9a-rA-R]+_)?[0-9a-rA-R]+)+|29#(?:(?:[0-9a-sA-S]+_)?[0-9a-sA-S]+)+|30#(?:(?:[0-9a-tA-T]+_)?[0-9a-tA-T]+)+|31#(?:(?:[0-9a-uA-U]+_)?[0-9a-uA-U]+)+|32#(?:(?:[0-9a-vA-V]+_)?[0-9a-vA-V]+)+|33#(?:(?:[0-9a-wA-W]+_)?[0-9a-wA-W]+)+|34#(?:(?:[0-9a-xA-X]+_)?[0-9a-xA-X]+)+|35#(?:(?:[0-9a-yA-Y]+_)?[0-9a-yA-Y]+)+|36#(?:(?:[0-9a-zA-Z]+_)?[0-9a-zA-Z]+)+|(?:(?:\\d+_)?\\d+)+"
+			"match": "\\b(?:2#(?:(?:[0-1]+_)?[0-1]+)+|3#(?:(?:[0-2]+_)?[0-2]+)+|4#(?:(?:[0-3]+_)?[0-3]+)+|5#(?:(?:[0-4]+_)?[0-4]+)+|6#(?:(?:[0-5]+_)?[0-5]+)+|7#(?:(?:[0-6]+_)?[0-6]+)+|8#(?:(?:[0-7]+_)?[0-7]+)+|9#(?:(?:[0-8]+_)?[0-8]+)+|10#(?:(?:[0-9]+_)?[0-9]+)+|11#(?:(?:[0-9aA]+_)?[0-9aA]+)+|12#(?:(?:[0-9a-bA-B]+_)?[0-9a-bA-B]+)+|13#(?:(?:[0-9a-cA-C]+_)?[0-9a-cA-C]+)+|14#(?:(?:[0-9a-dA-D]+_)?[0-9a-dA-D]+)+|15#(?:(?:[0-9a-eA-E]+_)?[0-9a-eA-E]+)+|16#(?:(?:[0-9a-fA-F]+_)?[0-9a-fA-F]+)+|17#(?:(?:[0-9a-gA-G]+_)?[0-9a-gA-G]+)+|18#(?:(?:[0-9a-hA-H]+_)?[0-9a-hA-H]+)+|19#(?:(?:[0-9a-iA-I]+_)?[0-9a-iA-I]+)+|20#(?:(?:[0-9a-jA-J]+_)?[0-9a-jA-J]+)+|21#(?:(?:[0-9a-kA-K]+_)?[0-9a-kA-K]+)+|22#(?:(?:[0-9a-lA-L]+_)?[0-9a-lA-L]+)+|23#(?:(?:[0-9a-mA-M]+_)?[0-9a-mA-M]+)+|24#(?:(?:[0-9a-nA-N]+_)?[0-9a-nA-N]+)+|25#(?:(?:[0-9a-oA-O]+_)?[0-9a-oA-O]+)+|26#(?:(?:[0-9a-pA-P]+_)?[0-9a-pA-P]+)+|27#(?:(?:[0-9a-qA-Q]+_)?[0-9a-qA-Q]+)+|28#(?:(?:[0-9a-rA-R]+_)?[0-9a-rA-R]+)+|29#(?:(?:[0-9a-sA-S]+_)?[0-9a-sA-S]+)+|30#(?:(?:[0-9a-tA-T]+_)?[0-9a-tA-T]+)+|31#(?:(?:[0-9a-uA-U]+_)?[0-9a-uA-U]+)+|32#(?:(?:[0-9a-vA-V]+_)?[0-9a-vA-V]+)+|33#(?:(?:[0-9a-wA-W]+_)?[0-9a-wA-W]+)+|34#(?:(?:[0-9a-xA-X]+_)?[0-9a-xA-X]+)+|35#(?:(?:[0-9a-yA-Y]+_)?[0-9a-yA-Y]+)+|36#(?:(?:[0-9a-zA-Z]+_)?[0-9a-zA-Z]+)+|(?:(?:\\d+_)?\\d+)+)\\b"
 		},
 		"entity.name.scope-resolution": {
 			"name": "entity.name.scope-resolution.laye",
@@ -182,9 +183,13 @@
 			"name": "variable.laye",
 			"match": "\\b[0-9a-zA-Z_]+\\b"
 		},
+		"invalid.illegal": {
+			"name": "invalid.illegal.laye",
+			"match": "#[0-9a-zA-Z_]*|'(?:[^']*?'|.*?\\s)|\"[^\"\\n;]*"
+		},
 		"escape": {
 			"name": "constant.character.escape.laye",
-			"match": "\\\\([\\\\0abefnrtv]|x[0-7][0-9A-Fa-f]|o[0-1]?[0-7]{1,2}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})"
+			"match": "\\\\([\\\\0abefnrtv]|x[0-7][0-9a-fA-F]|o[0-1]?[0-7]{1,2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})"
 		},
 		"meta.embedded": {
 			"name": "meta.embedded.laye",
@@ -239,7 +244,8 @@
 				{ "include": "#entity.name.scope-resolution" },
 				{ "include": "#entity.name.type" },
 				{ "include": "#variable.other.constant" },
-				{ "include": "#variable" }
+				{ "include": "#variable" },
+				{ "include": "#invalid.illegal" }
 			]
 		},
 		"comment.documentation.return": {
@@ -255,7 +261,8 @@
 				{ "include": "#punctuation.separator" },
 				{ "include": "#constant.numeric" },
 				{ "include": "#entity.name.scope-resolution" },
-				{ "include": "#entity.name.type" }
+				{ "include": "#entity.name.type" },
+				{ "include": "#invalid.illegal" }
 			]
 		},
 		"comment.documentation.since": {

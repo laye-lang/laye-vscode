@@ -5,6 +5,7 @@
 	"publisher": "laye-lang",
 	"license": "MIT",
 	"version": "1.0.0",
+	"icon": "./images/icon.png",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/laye-lang/laye-vscode"
@@ -30,6 +31,10 @@
 				"extensions": [
 					".laye"
 				],
+				"icon": {
+					"dark": "./images/dark.png",
+					"light": "./images/light.png"
+				},
 				"configuration": "./language-configuration.json"
 			}
 		],

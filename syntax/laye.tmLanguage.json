@@ -14,6 +14,7 @@
 		{ "include": "#keyword.control" },
 		{ "include": "#keyword.operator.assignment.logical" },
 		{ "include": "#keyword.operator.assignment.arithmetic" },
+		{ "include": "#keyword.operator.accessor" },
 		{ "include": "#keyword.operator.logical" },
 		{ "include": "#keyword.operator.arithmetic" },
 		{ "include": "#keyword.operator.relational" },
@@ -103,9 +104,13 @@
 			"name": "keyword.operator.assignment.arithmetic.laye",
 			"match": "\\+=|-=|\\*=|/=|%="
 		},
+		"keyword.operator.accessor": {
+			"name": "keyword.operator.accessor.laye",
+			"match": "->"
+		},
 		"keyword.operator.logical": {
 			"name": "keyword.operator.logical.laye",
-			"match": "<<|>>|[&|~]"
+			"match": "<<|>>|\\+\\+|--|[&|~]"
 		},
 		"keyword.operator.arithmetic": {
 			"name": "keyword.operator.arithmetic.laye",
@@ -117,7 +122,7 @@
 		},
 		"keyword.operator": {
 			"name": "keyword.operator.laye",
-			"match": "->|=>|[=?]"
+			"match": "=>|[=?]"
 		},
 		"constant.language.boolean": {
 			"name": "constant.language.boolean.laye",
@@ -185,7 +190,7 @@
 		},
 		"invalid.illegal": {
 			"name": "invalid.illegal.laye",
-			"match": "#[0-9a-zA-Z_]*|'(?:[^']*?'|.*?\\s)|\"[^\"\\n;]*"
+			"match": "#[0-9a-zA-Z_]*|'(?:[^']*?'|.*?\\s)|\"[^\"\\n;]*|[^0-9a-zA-Z_*?\\[\\]]"
 		},
 		"escape": {
 			"name": "constant.character.escape.laye",
@@ -207,6 +212,7 @@
 				{ "include": "#keyword.control" },
 				{ "include": "#keyword.operator.assignment.logical" },
 				{ "include": "#keyword.operator.assignment.arithmetic" },
+				{ "include": "#keyword.operator.accessor" },
 				{ "include": "#keyword.operator.logical" },
 				{ "include": "#keyword.operator.arithmetic" },
 				{ "include": "#keyword.operator.relational" },
@@ -237,15 +243,16 @@
 				{ "include": "#comment.line" },
 				{ "include": "#storage.modifier" },
 				{ "include": "#storage.type" },
+				{ "include": "#invalid.illegal" },
 				{ "include": "#keyword.operator.arithmetic" },
+				{ "include": "#keyword.operator" },
 				{ "include": "#punctuation.definition" },
 				{ "include": "#punctuation.separator" },
 				{ "include": "#constant.numeric" },
 				{ "include": "#entity.name.scope-resolution" },
 				{ "include": "#entity.name.type" },
 				{ "include": "#variable.other.constant" },
-				{ "include": "#variable" },
-				{ "include": "#invalid.illegal" }
+				{ "include": "#variable" }
 			]
 		},
 		"comment.documentation.return": {
@@ -256,13 +263,14 @@
 				{ "include": "#comment.line" },
 				{ "include": "#storage.modifier" },
 				{ "include": "#storage.type" },
+				{ "include": "#invalid.illegal" },
 				{ "include": "#keyword.operator.arithmetic" },
+				{ "include": "#keyword.operator" },
 				{ "include": "#punctuation.definition" },
 				{ "include": "#punctuation.separator" },
 				{ "include": "#constant.numeric" },
 				{ "include": "#entity.name.scope-resolution" },
-				{ "include": "#entity.name.type" },
-				{ "include": "#invalid.illegal" }
+				{ "include": "#entity.name.type" }
 			]
 		},
 		"comment.documentation.since": {

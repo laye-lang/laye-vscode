@@ -4,10 +4,10 @@ import * from "elf.h";
 
 alias kernel_start_function = callconv(sysv) i32();
 
-i32 memcmp(readonly rawptr a, readonly rawptr b, uint n)
+i32 memcmp(readonly rawptr a, rawptr b, uint n)
 {
-    var a_ = cast(u8 readonly[*]) a;
-    var b_ = cast(u8 readonly[*]) b;
+    var a_ = cast(u8[*]) a;
+    var b_ = cast(u8[*]) b;
 
     for (uint i = 0; i < n; i++)
     {
@@ -18,7 +18,7 @@ i32 memcmp(readonly rawptr a, readonly rawptr b, uint n)
     return 0;
 }
 
-EFI_FILE*? load_file(EFI_FILE* directory, CHAR16 readonly[*] path,
+EFI_FILE*? load_file(EFI_FILE* directory, CHAR16[*] path,
 	EFI_HANDLE image_handle, EFI_SYSTEM_TABLE* system_table)
 {
 	EFI_FILE*? loaded_file;

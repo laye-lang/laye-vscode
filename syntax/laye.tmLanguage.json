@@ -70,7 +70,7 @@
 		},
 		"storage.modifier": {
 			"name": "storage.modifier.laye",
-			"match": "\\b(?:const|inline|readonly|writeonly)\\b"
+			"match": "\\b(?:const|inline|mut)\\b"
 		},
 		"storage.type": {
 			"name": "storage.type.laye",
@@ -182,7 +182,7 @@
 		},
 		"entity.name.type": {
 			"name": "entity.name.type.laye",
-			"match": "(?<=\\b(?:struct|variant|enum|alias)\\b\\s+)\\b[0-9a-zA-Z_]+\\b|\\b[0-9a-zA-Z_]+\\b(?=\\s*(?:(?:read|write)only)?[\\s*?\\[\\]]*[0-9a-zA-Z_]+\\s*[^0-9a-zA-Z_\\s.\\]\"])"
+			"match": "(?<=\\b(?:struct|variant|enum|alias)\\b\\s+)\\b[0-9a-zA-Z_]+\\b|\\b[0-9a-zA-Z_]+\\b(?=\\s*(?:mut)?[\\s*?\\[\\]]*[0-9a-zA-Z_]+\\s*[^0-9a-zA-Z_\\s.\\]\"])"
 		},
 		"entity.name.function": {
 			"name": "entity.name.function.laye",
@@ -190,7 +190,7 @@
 		},
 		"variable.other.constant": {
 			"name": "variable.other.constant.laye",
-			"match": "\\b[0-9_]*[A-Z][0-9A-Z_]*\\b|(?<=\\b(?:const|(?:read|write)only)\\b[0-9a-zA-Z_\\s*?\\[\\]]+)\\b[0-9a-zA-Z_]+\\b|(?<=::\\s*)\\b[0-9a-z_]*[A-Z][0-9a-zA-Z_]*\\b"
+			"match": "\\b[0-9_]*[A-Z][0-9A-Z_]*\\b|(?<=\\b(?:const|mut)\\b[0-9a-zA-Z_\\s*?\\[\\]]+)\\b[0-9a-zA-Z_]+\\b|(?<=::\\s*)\\b[0-9a-z_]*[A-Z][0-9a-zA-Z_]*\\b"
 		},
 		"variable": {
 			"name": "variable.laye",

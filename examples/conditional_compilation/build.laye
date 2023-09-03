@@ -4,7 +4,7 @@ import "stdio.h";
 
 import std::build;
 
-std::build::action build(std::build::builder* builder)
+std::build::action build(std::build::builder mut* builder)
 {
     std::build::add_executable(builder, "main.laye");
 

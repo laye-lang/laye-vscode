@@ -4,7 +4,7 @@
 	"description": "Laye support for Visual Studio Code",
 	"publisher": "laye-lang",
 	"license": "MIT",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"icon": "images/icon.png",
 	"repository": {
 		"type": "git",

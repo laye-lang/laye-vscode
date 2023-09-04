@@ -43,7 +43,7 @@
 				{ "include": "#meta.embedded" },
 				{
 					"name": "keyword.laye",
-					"match": "@\\b(?:author|param|return|since)\\b"
+					"match": "@(?:author|param|return|since)\\b"
 				},
 				{ "include": "#comment.documentation.author" },
 				{ "include": "#comment.documentation.param" },
@@ -59,7 +59,7 @@
 				{ "include": "#meta.embedded" },
 				{
 					"name": "keyword.laye",
-					"match": "@\\bauthor\\b"
+					"match": "@author\\b"
 				},
 				{ "include": "#comment.documentation.author" }
 			]
@@ -178,19 +178,19 @@
 		},
 		"entity.name.scope-resolution": {
 			"name": "entity.name.scope-resolution.laye",
-			"match": "\\b[0-9a-zA-Z_]+\\b(?=\\s*::)|(?<=\\bimport\\b(?:.+?\\bfrom\\b)?\\s+(?:[0-9a-zA-Z_]+\\s*::\\s*)*|\\bas\\b\\s+)\\b[0-9a-zA-Z_]+\\b(?!.+?\\bfrom\\b)"
+			"match": "\\b[0-9a-zA-Z_]+(?=\\s*::)|(?<=\\bimport\\b(?:.+?\\bfrom)?\\s+(?:[0-9a-zA-Z_]+\\s*::\\s*)*|\\bas\\s+)[0-9a-zA-Z_]+\\b(?!.+?\\bfrom\\b)"
 		},
 		"entity.name.type": {
 			"name": "entity.name.type.laye",
-			"match": "(?<=\\b(?:struct|variant|enum|alias)\\b\\s+)\\b[0-9a-zA-Z_]+\\b|\\b[0-9a-zA-Z_]+\\b(?=\\s*(?:mut)?[\\s*?\\[\\]]*[0-9a-zA-Z_]+\\s*[^0-9a-zA-Z_\\s.\\]\"])"
+			"match": "(?<=\\b(?:struct|variant|enum|alias)\\s+)[0-9a-zA-Z_]+\\b|\\b[0-9a-zA-Z_]+\\b(?=\\s*(?:mut)?[\\s*?\\[\\]]*[0-9a-zA-Z_]+\\s*[^0-9a-zA-Z_\\s.\\]\"])"
 		},
 		"entity.name.function": {
 			"name": "entity.name.function.laye",
-			"match": "\\b[0-9a-zA-Z_]+\\b(?=\\s*\\()"
+			"match": "\\b[0-9a-zA-Z_]+(?=\\s*\\()"
 		},
 		"variable.other.constant": {
 			"name": "variable.other.constant.laye",
-			"match": "\\b[0-9_]*[A-Z][0-9A-Z_]*\\b|(?<=\\b(?:const|mut)\\b[0-9a-zA-Z_\\s*?\\[\\]]+)\\b[0-9a-zA-Z_]+\\b|(?<=::\\s*)\\b[0-9a-z_]*[A-Z][0-9a-zA-Z_]*\\b"
+			"match": "\\b[0-9_]*[A-Z][0-9A-Z_]*\\b|(?<=\\bconst[0-9a-zA-Z_\\s*?\\[\\]:]+)[0-9a-zA-Z_]+\\b|(?<=::\\s*)[0-9a-z_]*[A-Z][0-9a-zA-Z_]*\\b"
 		},
 		"variable": {
 			"name": "variable.laye",
@@ -198,7 +198,7 @@
 		},
 		"invalid.illegal": {
 			"name": "invalid.illegal.laye",
-			"match": "#[0-9a-zA-Z_]*|'(?:[^']*?'|.*?\\s)|\"[^\"\\n;]*"
+			"match": "#[0-9a-zA-Z_]*|'(?:[^']*?'|.*?\\s)|\"[^\"\\n;]*|[^0-9a-zA-Z_\\s*?\\[\\]]"
 		},
 		"escape": {
 			"name": "constant.character.escape.laye",
@@ -241,11 +241,11 @@
 		},
 		"comment.documentation.author": {
 			"name": "variable.other.constant.laye",
-			"match": "(?<=@\\bauthor\\b\\s+)\\b[0-9a-zA-Z_.\\-]+\\b"
+			"match": "(?<=@author\\s+)[0-9a-zA-Z_.\\-]+\\b"
 		},
 		"comment.documentation.param": {
 			"name": "meta.embedded.laye",
-			"begin": "(?<=@\\bparam\\b).",
+			"begin": "(?<=@param)\\s",
 			"end": "[\\n;]",
 			"patterns": [
 				{ "include": "#comment.line" },
@@ -265,7 +265,7 @@
 		},
 		"comment.documentation.return": {
 			"name": "meta.embedded.laye",
-			"begin": "(?<=@\\breturn\\b).",
+			"begin": "(?<=@return)\\s",
 			"end": "[\\n;]",
 			"patterns": [
 				{ "include": "#comment.line" },
@@ -283,7 +283,7 @@
 		},
 		"comment.documentation.since": {
 			"name": "constant.numeric.laye",
-			"match": "(?<=@\\bsince\\b\\s+)\\b\\d+(?:\\.\\d+)*[0-9a-zA-Z_.\\-]*\\b"
+			"match": "(?<=@since\\s+)\\d+(?:\\.\\d+)*[0-9a-zA-Z_.\\-]*\\b"
 		}
 	},
 	"scopeName": "source.laye"

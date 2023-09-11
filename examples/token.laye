@@ -38,20 +38,11 @@ test "token operations"
     var test_location = location { 1, 0, 0 };
 
     var ident_token = token::ident { .location = test_location, .spelling = "laye" };
-    if (ident_token is token::ident { .spelling == "laye" })
-    {
-        // should pass
-    }
+    assert(ident_token is token::ident { .spelling == "laye" });
 
     var delim_token = token::delim { test_location, '(' };
-    if (delim_token is token::delim { .kind == '(' })
-    {
-        // should pass
-    }
+    assert(delim_token is token::delim { .kind == '(' });
 
     var keyword_token = token::keyword { test_location, ::Return };
-    if (keyword_token is token::keyword { .kind == global::token::keyword::kind::Return })
-    {
-        // should pass
-    }
+    assert(keyword_token is token::keyword { .kind == global::token::keyword::kind::Return });
 }

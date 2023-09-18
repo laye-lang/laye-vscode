@@ -182,7 +182,7 @@
 		},
 		"entity.name.type": {
 			"name": "entity.name.type.laye",
-			"match": "(?<=\\b(?:struct|variant|enum|alias)\\s+)[0-9a-zA-Z_]+\\b|\\b[0-9a-zA-Z_]+\\b(?=\\s*(?:(?:mut)?(?:\\s*\\[[0-9a-zA-Z_]+\\])?[\\s*?]*[0-9a-zA-Z_]+\\s*(?:[^0-9a-zA-Z_\\s.\\]\"])|[<|\\{]))|(?<=\\bstruct\\s+[0-9a-zA-Z_]+<\\s*(?:[0-9a-zA-Z_\\s]+,\\s*)*)[0-9a-zA-Z_]+(?=\\s*[>,])"
+			"match": "(?<=\\b(?:struct|variant|enum|alias)\\s+)[0-9a-zA-Z_]+\\b|\\b[0-9a-zA-Z_]+\\b(?=\\s*(?:(?:mut)?(?:\\s*\\[[0-9a-zA-Z_]+\\])?[\\s*?]*[0-9a-zA-Z_]+\\s*(?:[^0-9a-zA-Z_\\s.\\]\"])|[<|\\{]))|(?<=<\\s*(?:[0-9a-zA-Z_\\s]+,\\s*)*)[0-9a-zA-Z_]+(?=(?:\\s*,[0-9a-zA-Z_\\s]+)*\\s*>)"
 		},
 		"entity.name.function": {
 			"name": "entity.name.function.laye",

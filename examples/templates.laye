@@ -1,0 +1,32 @@
+import * from std;
+
+// example code, using a hypothetical `list` with a type parameter
+struct json_property
+{
+    string key;
+    json_value value;
+}
+
+struct json_value
+{
+    variant object { list<json_properties> properties; }
+    variant array { list<json_value> elements; }
+    variant string { string value; }
+    variant number { float value; }
+    variant boolean { bool value; }
+}
+
+// another example, with a value in addition to a type
+struct vec<T, i32 N>
+{
+    static_assert(N > 0);
+
+    T[N] values;
+
+    const if (N >= 1) [offset(sizeof(T)) * 0] T x;
+    const if (N >= 2) [offset(sizeof(T)) * 1] T y;
+    const if (N >= 3) [offset(sizeof(T)) * 2] T z;
+    const if (N >= 4) [offset(sizeof(T)) * 3] T w;
+}
+
+vec<f32, 2> my_vec;

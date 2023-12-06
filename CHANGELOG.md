@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.1.3
+
+### Additions
+
+* `assert` keyword
+* Reference operator (`&`)
+
+### Changes
+
+* Replaced `nodiscard` with `discard` and `discardable`
+
 ## v0.1.2
 
 ### Additions

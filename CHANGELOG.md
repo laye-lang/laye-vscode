@@ -1,7 +1,23 @@
-# Change Log
+# Changelog
 
-All notable changes to the "laye-vscode" extension will be documented in this file.
+## v0.1.2
 
-## [Unreleased]
+### Additions
 
-- Initial release
+* `@see` and `@deprecated` annotation in doc-comments
+* `tokens.laye` example
+
+### Changes
+
+* Adapted *new* `laye` syntax
+* Refactored grammar for more readability and faster parsing
+* Reduced file sizes
+* Renamed `examples` to `test`
+
+## v0.1.1
+
+Bug fixes
+
+## v0.1.0
+
+Initial release

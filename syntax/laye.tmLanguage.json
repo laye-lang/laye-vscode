@@ -1,289 +1,160 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Laye",
 	"patterns": [
-		{ "include": "#comment.block" },
-		{ "include": "#comment.line" },
-		{ "include": "#keyword.directive" },
-		{ "include": "#storage.modifier" },
-		{ "include": "#storage.type" },
-		{ "include": "#storage" },
-		{ "include": "#keyword.control.conditional" },
-		{ "include": "#keyword.control.loop" },
-		{ "include": "#keyword.control.flow" },
-		{ "include": "#keyword.control" },
-		{ "include": "#keyword.operator.assignment.logical" },
-		{ "include": "#keyword.operator.assignment.arithmetic" },
-		{ "include": "#keyword.operator.accessor" },
-		{ "include": "#keyword.operator.logical" },
-		{ "include": "#keyword.operator.arithmetic" },
-		{ "include": "#keyword.operator.relational" },
-		{ "include": "#keyword.operator" },
-		{ "include": "#constant.language.boolean" },
-		{ "include": "#constant.language" },
-		{ "include": "#string.quoted.single" },
-		{ "include": "#string.quoted.double" },
-		{ "include": "#punctuation.definition" },
-		{ "include": "#punctuation.separator" },
-		{ "include": "#constant.numeric" },
-		{ "include": "#entity.name.scope-resolution" },
-		{ "include": "#entity.name.type" },
-		{ "include": "#entity.name.function" },
-		{ "include": "#variable.other.constant" },
-		{ "include": "#variable" },
-		{ "include": "#invalid.illegal" }
+		{ "include": "#punctuation" },
+		{ "include": "#comment" },
+		{ "include": "#keyword" },
+		{ "include": "#operator" },
+		{ "include": "#number" },
+		{ "include": "#string" },
+		{ "include": "#namespace" },
+		{ "include": "#type" },
+		{ "include": "#function" },
+		{ "include": "#variable.readonly" },
+		{ "include": "#variable" }
 	],
 	"repository": {
-		"comment.block": {
-			"name": "comment.block.laye",
-			"begin": "/\\*",
-			"end": "\\*/",
+		"punctuation": {
+			"name": "punctuation.laye",
+			"match": "::|[(),.:;\\[\\]{}]|<(?=[\\s,0-9A-Z_a-z]*>)|(?<=<[\\s,0-9A-Z_a-z]*)>"
+		},
+		"comment": {
 			"patterns": [
-				{ "include": "#comment.block" },
-				{ "include": "#meta.embedded" },
 				{
-					"name": "keyword.laye",
-					"match": "@(?:author|param|return|since)\\b"
+					"name": "comment.laye",
+					"begin": "/\\*",
+					"end": "\\*/",
+					"patterns": [
+						{
+							"begin": "/\\*",
+							"end": "\\*/"
+						},
+						{
+							"match": "\\\\`"
+						},
+						{
+							"name": "meta.embedded.laye",
+							"begin": "`",
+							"end": "`",
+							"patterns": [
+								{ "include": "$self" }
+							]
+						},
+						{
+							"name": "keyword.laye",
+							"match": "@(?:author|deprecated|param|return|see|since)\\b"
+						},
+						{
+							"name": "variable.other.constant.laye",
+							"match": "(?<=@author\\s+)[\\-.0-9A-Z_a-z]+\\b"
+						},
+						{
+							"name": "variable.parameter.laye",
+							"match": "(?<=@param\\s+[0-9A-Z_a-z]+\\s*(?:<[\\s,0-9A-Z_a-z]*>\\s*)?)[0-9A-Z_a-z]+\\b"
+						},
+						{
+							"name": "entity.name.type.laye",
+							"match": "(?<=@(?:param|return)\\s+(?:[0-9A-Z_a-z]+\\s*<(?:[\\s,0-9A-Z_a-z]+,)?\\s*)?)[0-9A-Z_a-z]+\\b"
+						},
+						{
+							"name": "constant.numeric.laye",
+							"match": "(?<=@since\\s+)[\\-.0-9A-Z_a-z]+\\b"
+						}
+					]
 				},
-				{ "include": "#comment.documentation.author" },
-				{ "include": "#comment.documentation.param" },
-				{ "include": "#comment.documentation.return" },
-				{ "include": "#comment.documentation.since" }
+				{
+					"name": "comment.laye",
+					"match": "//.*"
+				}
 			]
 		},
-		"comment.line": {
-			"name": "comment.line.double-slash.laye",
-			"begin": "//",
-			"end": "\\n",
+		"keyword": {
 			"patterns": [
-				{ "include": "#meta.embedded" },
 				{
 					"name": "keyword.laye",
-					"match": "@author\\b"
+					"match": "\\b(?:alias|alignof|and|as|break|c(?:ast|atch|allconv|ase|onst|ontinue)|default|defer|delete|do|else|enum|export|for|foreign|from|goto|if|import|inline|mut|new|nodiscard|not|offsetof|operator|or|return|sizeof|struct|switch|test|try|varargs|variant|xor|xyzzy)\\b"
 				},
-				{ "include": "#comment.documentation.author" }
+				{
+					"name": "constant.language.laye",
+					"match": "\\b(?:false|global|nil|true)\\b"
+				},
+				{
+					"name": "storage.type.laye",
+					"match": "\\b(?:bool|[biu]\\d+|f(?:loat|16|32|64|80|128)|int|noreturn|uint|var|void)\\b"
+				}
 			]
 		},
-		"keyword.directive": {
-			"name": "keyword.directive.laye",
-			"match": "\\b(?:import|export|from|as)\\b"
-		},
-		"storage.modifier": {
-			"name": "storage.modifier.laye",
-			"match": "\\b(?:const|inline|mut)\\b"
-		},
-		"storage.type": {
-			"name": "storage.type.laye",
-			"match": "\\b(?:var|void|noreturn|rawptr|bool|b\\d+|int|i\\d+|uint|u\\d+|float|f16|f32|f64|f80|f128|struct|variant|enum|alias|error)\\b"
-		},
-		"storage": {
-			"name": "storage.laye",
-			"match": "\\b(?:varargs|foreign|callconv|test)\\b"
-		},
-		"keyword.control.conditional": {
-			"name": "keyword.control.conditional.laye",
-			"match": "\\b(?:if|else|switch|case|default)\\b"
-		},
-		"keyword.control.loop": {
-			"name": "keyword.control.loop.laye",
-			"match": "\\b(?:for|do)\\b"
-		},
-		"keyword.control.flow": {
-			"name": "keyword.control.flow.laye",
-			"match": "\\b(?:return|break|continue|defer|goto)\\b"
-		},
-		"keyword.control": {
-			"name": "keyword.control.laye",
-			"match": "\\b(?:new|delete|cast|try|catch|discard|sizeof|alignof|offsetof|not|and|or|xor|is|assert)\\b"
-		},
-		"keyword.operator.assignment.logical": {
-			"name": "keyword.operator.assignment.logical.laye",
-			"match": "&=|\\|=|~=|<<=|>>="
-		},
-		"keyword.operator.assignment.arithmetic": {
-			"name": "keyword.operator.assignment.arithmetic.laye",
-			"match": "\\+=|-=|\\*=|/=|%="
-		},
-		"keyword.operator.accessor": {
-			"name": "keyword.operator.accessor.laye",
-			"match": "->"
-		},
-		"keyword.operator.logical": {
-			"name": "keyword.operator.logical.laye",
-			"match": "<<|>>|\\+\\+|--|[&|~]"
-		},
-		"keyword.operator.arithmetic": {
-			"name": "keyword.operator.arithmetic.laye",
-			"match": "[+\\-*/%]"
-		},
-		"keyword.operator.relational": {
-			"name": "keyword.operator.relational.laye",
-			"match": "==|!=|<=|>=|[<>]"
-		},
-		"keyword.operator": {
+		"operator": {
 			"name": "keyword.operator.laye",
-			"match": "=>|[=?]"
+			"match": "\\?|=>|(?:<<|>>|[!%&*+\\-/<=>|~])=?"
 		},
-		"constant.language.boolean": {
-			"name": "constant.language.boolean.laye",
-			"match": "\\b(?:true|false)\\b"
-		},
-		"constant.language": {
-			"name": "constant.language.laye",
-			"match": "\\b(?:nil|global)\\b"
-		},
-		"string.quoted.single": {
-			"name": "string.quoted.single.laye",
-			"begin": "'(?=(?:[^' ]|\\\\')*'| ')",
-			"end": "'",
-			"patterns": [
-				{
-					"name": "constant.character.escape.laye",
-					"match": "\\\\'"
-				},
-				{ "include": "#escape" }
-			]
-		},
-		"string.quoted.double": {
-			"name": "string.quoted.double.laye",
-			"begin": "\"(?=(?:[^\"]|\\\\\")*\")",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.laye",
-					"match": "\\\\\""
-				},
-				{
-					"name": "constant.other.placeholder.laye",
-					"match": "%[\\+#]*\\d*(?:\\.\\d+)?(?:hh|ll|l)?[c-gopsuxEGX%]"
-				},
-				{
-					"name": "invalid.illegal.laye",
-					"match": "%."
-				},
-				{ "include": "#escape" }
-			]
-		},
-		"punctuation.definition": {
-			"name": "punctuation.definition.laye",
-			"match": "[\\(\\)\\[\\]\\{\\}]"
-		},
-		"punctuation.separator": {
-			"name": "punctuation.separator.laye",
-			"match": "::|[.,:;]"
-		},
-		"constant.numeric": {
+		"number": {
 			"name": "constant.numeric.laye",
-			"match": "\\b(?:2#(?:(?:[0-1]+_)?[0-1]+)+|3#(?:(?:[0-2]+_)?[0-2]+)+|4#(?:(?:[0-3]+_)?[0-3]+)+|5#(?:(?:[0-4]+_)?[0-4]+)+|6#(?:(?:[0-5]+_)?[0-5]+)+|7#(?:(?:[0-6]+_)?[0-6]+)+|8#(?:(?:[0-7]+_)?[0-7]+)+|9#(?:(?:[0-8]+_)?[0-8]+)+|10#(?:(?:[0-9]+_)?[0-9]+)+|11#(?:(?:[0-9aA]+_)?[0-9aA]+)+|12#(?:(?:[0-9a-bA-B]+_)?[0-9a-bA-B]+)+|13#(?:(?:[0-9a-cA-C]+_)?[0-9a-cA-C]+)+|14#(?:(?:[0-9a-dA-D]+_)?[0-9a-dA-D]+)+|15#(?:(?:[0-9a-eA-E]+_)?[0-9a-eA-E]+)+|16#(?:(?:[0-9a-fA-F]+_)?[0-9a-fA-F]+)+|17#(?:(?:[0-9a-gA-G]+_)?[0-9a-gA-G]+)+|18#(?:(?:[0-9a-hA-H]+_)?[0-9a-hA-H]+)+|19#(?:(?:[0-9a-iA-I]+_)?[0-9a-iA-I]+)+|20#(?:(?:[0-9a-jA-J]+_)?[0-9a-jA-J]+)+|21#(?:(?:[0-9a-kA-K]+_)?[0-9a-kA-K]+)+|22#(?:(?:[0-9a-lA-L]+_)?[0-9a-lA-L]+)+|23#(?:(?:[0-9a-mA-M]+_)?[0-9a-mA-M]+)+|24#(?:(?:[0-9a-nA-N]+_)?[0-9a-nA-N]+)+|25#(?:(?:[0-9a-oA-O]+_)?[0-9a-oA-O]+)+|26#(?:(?:[0-9a-pA-P]+_)?[0-9a-pA-P]+)+|27#(?:(?:[0-9a-qA-Q]+_)?[0-9a-qA-Q]+)+|28#(?:(?:[0-9a-rA-R]+_)?[0-9a-rA-R]+)+|29#(?:(?:[0-9a-sA-S]+_)?[0-9a-sA-S]+)+|30#(?:(?:[0-9a-tA-T]+_)?[0-9a-tA-T]+)+|31#(?:(?:[0-9a-uA-U]+_)?[0-9a-uA-U]+)+|32#(?:(?:[0-9a-vA-V]+_)?[0-9a-vA-V]+)+|33#(?:(?:[0-9a-wA-W]+_)?[0-9a-wA-W]+)+|34#(?:(?:[0-9a-xA-X]+_)?[0-9a-xA-X]+)+|35#(?:(?:[0-9a-yA-Y]+_)?[0-9a-yA-Y]+)+|36#(?:(?:[0-9a-zA-Z]+_)?[0-9a-zA-Z]+)+|(?:(?:\\d+_)?\\d+)+)\\b"
-		},
-		"entity.name.scope-resolution": {
-			"name": "entity.name.scope-resolution.laye",
-			"match": "\\b[0-9a-zA-Z_]+(?=\\s*::)|(?<=\\bimport\\b(?:.+?\\bfrom)?\\s+(?:[0-9a-zA-Z_]+\\s*::\\s*)*|\\bas\\s+)[0-9a-zA-Z_]+\\b(?!.+?\\bfrom\\b)"
-		},
-		"entity.name.type": {
-			"name": "entity.name.type.laye",
-			"match": "(?<=\\b(?:struct|variant|enum|alias|error)\\s+)[0-9a-zA-Z_]+\\b|\\b[0-9a-zA-Z_]+\\b(?=\\s*(?:(?:mut)?(?:\\s*\\[[0-9a-zA-Z_]+\\])?[\\s*?]*[0-9a-zA-Z_]+\\s*(?:[^0-9a-zA-Z_\\s.\\]\"])|[<|\\{]))|(?<=<\\s*(?:[0-9a-zA-Z_\\s]+,\\s*)*)[0-9a-zA-Z_]+(?=(?:\\s*,[0-9a-zA-Z_\\s]+)*\\s*>)"
-		},
-		"entity.name.function": {
-			"name": "entity.name.function.laye",
-			"match": "\\b[0-9a-zA-Z_]+(?=\\s*\\()"
-		},
-		"variable.other.constant": {
-			"name": "variable.other.constant.laye",
-			"match": "\\b[0-9_]*[A-Z][0-9A-Z_]*\\b|(?<=\\bconst[0-9a-zA-Z_\\s*?\\[\\]:]+)[0-9a-zA-Z_]+\\b|(?<=::\\s*)[0-9a-z_]*[A-Z][0-9a-zA-Z_]*\\b"
-		},
-		"variable": {
-			"name": "variable.laye",
-			"match": "\\b[0-9a-zA-Z_]+\\b"
-		},
-		"invalid.illegal": {
-			"name": "invalid.illegal.laye",
-			"match": "#[0-9a-zA-Z_]*|'(?:[^']*?'|.*?\\s)|\"[^\"\\n;]*|[^0-9a-zA-Z_\\s*?\\[\\]]"
+			"match": "\\b(?:1(?:0#(?:[0-9]+_)*[0-9]+|1#(?:[0-9aA]+_)*[0-9aA]+|2#(?:[0-9abAB]+_)*[0-9a-bA-B]+|3#(?:[0-9a-cA-C]+_)*[0-9a-cA-C]+|4#(?:[0-9a-dA-D]+_)*[0-9a-dA-D]+|5#(?:[0-9a-eA-E]+_)*[0-9a-eA-E]+|6#(?:[0-9a-fA-F]+_)*[0-9a-fA-F]+|7#(?:[0-9a-gA-G]+_)*[0-9a-gA-G]+|8#(?:[0-9a-hA-H]+_)*[0-9a-hA-H]+|9#(?:[0-9a-iA-I]+_)*[0-9a-iA-I]+)|2(?:#(?:[01]+_)*[01]+|0#(?:[0-9a-jA-J]+_)*[0-9a-jA-J]+|1#(?:[0-9a-kA-K]+_)*[0-9a-kA-K]+|2#(?:[0-9a-lA-L]+_)*[0-9a-lA-L]+|3#(?:[0-9a-mA-M]+_)*[0-9a-mA-M]+|4#(?:[0-9a-nA-N]+_)*[0-9a-nA-N]+|5#(?:[0-9a-oA-O]+_)*[0-9a-oA-O]+|6#(?:[0-9a-pA-P]+_)*[0-9a-pA-P]+|7#(?:[0-9a-qA-Q]+_)*[0-9a-qA-Q]+|8#(?:[0-9a-rA-R]+_)*[0-9a-rA-R]+|9#(?:[0-9a-sA-S]+_)*[0-9a-sA-S]+)|3(?:#(?:[0-2]+_)*[0-2]+|0#(?:[0-9a-tA-T]+_)*[0-9a-tA-T]+|1#(?:[0-9a-uA-U]+_)*[0-9a-uA-U]+|2#(?:[0-9a-vA-V]+_)*[0-9a-vA-V]+|3#(?:[0-9a-wA-W]+_)*[0-9a-wA-W]+|4#(?:[0-9a-xA-X]+_)*[0-9a-xA-X]+|5#(?:[0-9a-yA-Y]+_)*[0-9a-yA-Y]+|6#(?:[0-9a-zA-Z]+_)*[0-9a-zA-Z]+)|4#(?:[0-3]+_)*[0-3]+|5#(?:[0-4]+_)*[0-4]+|6#(?:[0-5]+_)*[0-5]+|7#(?:[0-6]+_)*[0-6]+|8#(?:[0-7]+_)*[0-7]+|9#(?:[0-8]+_)*[0-8]+|(?:\\d+_)*(?:\\d+\\.)?\\d+)\\b"
 		},
 		"escape": {
 			"name": "constant.character.escape.laye",
 			"match": "\\\\(?:[\\\\0abefnrtv]|x[0-7][0-9a-fA-F]|o[0-1]?[0-7]{1,2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})"
 		},
-		"meta.embedded": {
-			"name": "meta.embedded.laye",
-			"begin": "`",
-			"end": "`",
+		"string": {
 			"patterns": [
-				{ "include": "#comment.block" },
-				{ "include": "#keyword.directive" },
-				{ "include": "#storage.modifier" },
-				{ "include": "#storage.type" },
-				{ "include": "#storage" },
-				{ "include": "#keyword.control.conditional" },
-				{ "include": "#keyword.control.loop" },
-				{ "include": "#keyword.control.flow" },
-				{ "include": "#keyword.control" },
-				{ "include": "#keyword.operator.assignment.logical" },
-				{ "include": "#keyword.operator.assignment.arithmetic" },
-				{ "include": "#keyword.operator.accessor" },
-				{ "include": "#keyword.operator.logical" },
-				{ "include": "#keyword.operator.arithmetic" },
-				{ "include": "#keyword.operator.relational" },
-				{ "include": "#keyword.operator" },
-				{ "include": "#constant.language.boolean" },
-				{ "include": "#constant.language" },
-				{ "include": "#string.quoted.single" },
-				{ "include": "#string.quoted.double" },
-				{ "include": "#punctuation.definition" },
-				{ "include": "#punctuation.separator" },
-				{ "include": "#constant.numeric" },
-				{ "include": "#entity.name.scope-resolution" },
-				{ "include": "#entity.name.type" },
-				{ "include": "#entity.name.function" },
-				{ "include": "#variable.other.constant" },
-				{ "include": "#variable" }
+				{
+					"name": "string.laye",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.laye",
+							"match": "\\\\\""
+						},
+						{ "include": "#escape" },
+						{
+							"name": "constant.other.placeholder.laye",
+							"match": "%[\\+#]*\\d*(?:\\.\\d+)?(?:hh|ll|l)?[%EGXc-gopsux]"
+						},
+						{
+							"name": "invalid.laye",
+							"match": "[\\\\%]."
+						}
+					]
+				},
+				{
+					"name": "string.laye",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+						{
+							"name": "constant.character.escape.laye",
+							"match": "\\\\'"
+						},
+						{ "include": "#escape" },
+						{
+							"name": "invalid.laye",
+							"match": "\\\\."
+						}
+					]
+				}
 			]
 		},
-		"comment.documentation.author": {
+		"namespace": {
+			"name": "entity.name.namespace.laye",
+			"match": "\\b[0-9A-Z_a-z]+(?=::)|(?<=\\bimport\\s+(?:[\\s*,0-9A-Z_a-z]+\\sfrom\\s+(?:\"[0-9A-Z_a-z]+\"\\s+as\\s+)?)?)[0-9A-Z_a-z]+\\b"
+		},
+		"type": {
+			"name": "entity.name.type.laye",
+			"match": "(?<=\\b(?:alias|const|enum|struct|variant)\\s+)[0-9A-Z_a-z]+\\b|(?<![0-9A-Z_a-z]\\s+)\\b[0-9A-Z_a-z]+\\b(?=\\s*(?:<[\\s,0-9A-Z_a-z]*>\\s*)?(?:\\*\\s*)*(?:\\?\\s*)*[0-9A-Z_a-z])|(?<=<(?:[\\s,0-9A-Z_a-z]+,)?\\s*)[0-9A-Z_a-z]+(?=\\s*[,>])"
+		},
+		"function": {
+			"name": "entity.name.function.laye",
+			"match": "\\b[0-9A-Z_a-z]+(?=\\s*\\()"
+		},
+		"variable.readonly": {
 			"name": "variable.other.constant.laye",
-			"match": "(?<=@author\\s+)[0-9a-zA-Z_.\\-]+\\b"
+			"match": "(?<=\\bconst\\s+[\\s,0-9A-Z_a-z<>]+\\s+)[0-9A-Z_a-z]+\\b|\\b[0-9_]*[A-Z][0-9A-Z_a-z]*\\b"
 		},
-		"comment.documentation.param": {
-			"name": "meta.embedded.laye",
-			"begin": "(?<=@param)\\s",
-			"end": "[\\n;]",
-			"patterns": [
-				{ "include": "#comment.line" },
-				{ "include": "#storage.modifier" },
-				{ "include": "#storage.type" },
-				{ "include": "#invalid.illegal" },
-				{ "include": "#keyword.operator.arithmetic" },
-				{ "include": "#keyword.operator" },
-				{ "include": "#punctuation.definition" },
-				{ "include": "#punctuation.separator" },
-				{ "include": "#constant.numeric" },
-				{ "include": "#entity.name.scope-resolution" },
-				{ "include": "#entity.name.type" },
-				{ "include": "#variable.other.constant" },
-				{ "include": "#variable" }
-			]
-		},
-		"comment.documentation.return": {
-			"name": "meta.embedded.laye",
-			"begin": "(?<=@return)\\s",
-			"end": "[\\n;]",
-			"patterns": [
-				{ "include": "#comment.line" },
-				{ "include": "#storage.modifier" },
-				{ "include": "#storage.type" },
-				{ "include": "#invalid.illegal" },
-				{ "include": "#keyword.operator.arithmetic" },
-				{ "include": "#keyword.operator" },
-				{ "include": "#punctuation.definition" },
-				{ "include": "#punctuation.separator" },
-				{ "include": "#constant.numeric" },
-				{ "include": "#entity.name.scope-resolution" },
-				{ "include": "#entity.name.type" }
-			]
-		},
-		"comment.documentation.since": {
-			"name": "constant.numeric.laye",
-			"match": "(?<=@since\\s+)\\d+(?:\\.\\d+)*[0-9a-zA-Z_.\\-]*\\b"
+		"variable": {
+			"name": "variable.laye",
+			"match": "\\b[0-9A-Z_a-z]+\\b"
 		}
 	},
 	"scopeName": "source.laye"

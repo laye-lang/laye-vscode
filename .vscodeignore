@@ -1,6 +1,6 @@
 # Directories
 .vscode
-examples
+test
 
 # Files
 .gitignore

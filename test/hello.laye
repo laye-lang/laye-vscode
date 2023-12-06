@@ -11,9 +11,11 @@ import * from "stdio.h";
 /*
  * Documentation needs highlighting too
  * @author Zedritsch
+ * @see https://example.com
  * @param void name
  * @return i32
  * @since 1.0.0-pre1
+ * @deprecated
  */
 
 i32 main()

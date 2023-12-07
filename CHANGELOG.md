@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.1.4
+
+### Additions
+
+* Type literals
+
+### Changes
+
+* Removed `is` from `token.laye`
+
+### Bug fixes
+
+* False highlighting in binary shift operations
+
 ## v0.1.3
 
 ### Additions

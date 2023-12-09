@@ -142,7 +142,7 @@
 		},
 		"type": {
 			"name": "entity.name.type.laye",
-			"match": "(?<=\\b(?:alias|const|enum|struct|variant)\\s+)[0-9A-Z_a-z]+\\b|(?<![0-9A-Z_a-z]\\s+)\\b[0-9A-Z_a-z]+\\b(?!\\s*(?:and|is|x?or)\\b)(?=(?:\\s*<[\\s,0-9A-Z_a-z]*>)?[\\s&*?]*[0-9A-Z_a-z{])|(?<=<(?:[\\s,0-9A-Z_a-z]+,)?\\s*)[0-9A-Z_a-z]+(?=\\s*[,>])"
+			"match": "(?<=\\b(?:alias|const|enum|struct|variant)\\s+)[0-9A-Z_a-z]+\\b|(?<![.0-9A-Z_a-z]\\s*)\\b[0-9A-Z_a-z]+\\b(?!\\s*(?:and|is|x?or)\\b)(?=(?:\\s*<[\\s,0-9A-Z_a-z]*>)?[\\s&*?\\[\\]]*[0-9A-Z_a-z{])|(?<=<(?:[\\s,0-9A-Z_a-z]+,)?\\s*)[0-9A-Z_a-z]+(?=\\s*[,>])"
 		},
 		"function": {
 			"name": "entity.name.function.laye",

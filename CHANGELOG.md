@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.1.5
+
+### Additions
+
+* `is` keyword
+* `bootloader.laye` example
+* Support for type arrays
+
+### Bug fixes
+
+* False highlighting of type properties
+
 ## v0.1.4
 
 ### Additions

@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.1.6
+
+### Additions
+
+* `fallthrough` keyword
+* `unreachable` keyword
+* `yield` keyword
+
 ## v0.1.5
 
 ### Additions

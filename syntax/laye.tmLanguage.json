@@ -72,7 +72,7 @@
 			"patterns": [
 				{
 					"name": "keyword.laye",
-					"match": "\\b(?:alias|alignof|and|as|assert|break|cast|catch|callconv|case|const|continue|default|defer|delete|discard|discardable|do|else|enum|export|for|foreign|from|goto|if|import|inline|is|mut|new|not|offsetof|operator|or|return|sizeof|struct|switch|test|try|varargs|variant|xor|xyzzy)\\b"
+					"match": "\\b(?:alias|alignof|and|as|assert|break|cast|catch|callconv|case|const|continue|default|defer|delete|discard|discardable|do|else|enum|export|fallthrough|for|foreign|from|goto|if|import|inline|is|mut|new|not|offsetof|operator|or|return|sizeof|struct|switch|test|try|unreachable|varargs|variant|xor|xyzzy|yield)\\b"
 				},
 				{
 					"name": "constant.language.laye",

@@ -80,7 +80,7 @@
 				},
 				{
 					"name": "storage.type.laye",
-					"match": "\\b(?:bool|[biu]\\d+|f(?:loat|16|32|64|80|128)|int|noreturn|uint|var|void)\\b"
+					"match": "\\b(?:bool|[iu]\\d+|f(?:loat|16|32|64|80|128)|int|noreturn|uint|var|void)\\b"
 				}
 			]
 		},

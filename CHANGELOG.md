@@ -1,4 +1,8 @@
 # Changelog
+## v0.1.8
+### Bug fixes
+* False highlighting of variables inside an expression
+
 ## v0.1.7
 ### Additions
 * Invalid numbers are highlighted

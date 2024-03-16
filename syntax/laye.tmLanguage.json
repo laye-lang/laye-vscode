@@ -89,6 +89,10 @@
 				{
 					"name": "comment.laye",
 					"match": "//.*"
+				},
+				{
+					"name": "comment.laye",
+					"match": "#.*"
 				}
 			]
 		},

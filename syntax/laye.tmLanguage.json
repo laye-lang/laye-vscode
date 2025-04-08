@@ -100,7 +100,7 @@
 			"patterns": [
 				{
 					"name": "keyword.laye",
-					"match": "\\b(?:alias|alignof|and|as|assert|break|cast|catch|callconv|case|const|continue|default|defer|delete|discard|discardable|do|else|enum|export|fallthrough|for|foreign|from|goto|if|import|inline|is|mut|new|not|offsetof|operator|or|return|sizeof|struct|switch|test|try|unreachable|varargs|variant|while|xor|xyzzy|yield)\\b"
+					"match": "\\b(?:__laye_ffi_(bool|char|double|float|int|long|longdouble|longlong|short)|(strict\\s+)?alias|alignof|and|as|(static\\s+)?assert|break|cast|catch|callconv|case|const|continue|countof|default|defer|delegate|delete|discard|discardable|do|else|enum|export|fallthrough|for|foreign|from|goto|(static\\s+)?if|import|inline|is|module|mut|new|not|offsetof|operator|or|pure|rankof|ref|register|return|sizeof|struct|switch|template|test|try|typeof|unreachable|varargs|variant|while|xor|xyzzy|yield)\\b"
 				},
 				{
 					"name": "constant.language.laye",
@@ -108,7 +108,7 @@
 				},
 				{
 					"name": "storage.type.laye",
-					"match": "\\b(?:bool|[iu]\\d+|f(?:loat|16|32|64|80|128)|int|noreturn|uint|var|void)\\b"
+					"match": "\\b(?:bool\\d*|int\\d*|float(16|32|64|80|128)?|noreturn|var|void)\\b"
 				}
 			]
 		},

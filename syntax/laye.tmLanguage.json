@@ -92,7 +92,7 @@
 				},
 				{
 					"name": "comment.laye",
-					"match": "#.*"
+					"match": "#!.*"
 				}
 			]
 		},
